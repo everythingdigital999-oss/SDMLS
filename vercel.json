@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/_partials/(.*)",
+      "destination": "https://static.parastorage.com/services/$1"
+    },
+    {
+      "source": "/_serverless/(.*)",
+      "destination": "https://www.repixs.com/_serverless/$1"
+    },
+    {
+      "source": "/_api/(.*)",
+      "destination": "https://www.repixs.com/_api/$1"
+    }
+  ]
+}
