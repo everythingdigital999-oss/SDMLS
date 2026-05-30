@@ -11,6 +11,21 @@
 -->
 <html>
 <head>
+<script id="force-nav-script">
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (a) {
+        var href = a.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+            // It's a real link. Force browser navigation and stop Wix from intercepting!
+            e.stopPropagation();
+            window.location.href = a.href;
+            e.preventDefault();
+        }
+    }
+  }, true); // Capture phase!
+</script>
+
 <script id="wix-domain-patch">
   (function() {
     var origin = window.location.origin;

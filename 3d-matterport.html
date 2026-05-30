@@ -4,6 +4,21 @@
 <!-- Mirrored from www.socialdaddy.com/3d-matterport by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 May 2026 07:40:02 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
+<script id="force-nav-script">
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (a) {
+        var href = a.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+            // It's a real link. Force browser navigation and stop Wix from intercepting!
+            e.stopPropagation();
+            window.location.href = a.href;
+            e.preventDefault();
+        }
+    }
+  }, true); // Capture phase!
+</script>
+
 <script id="wix-domain-patch">
   (function() {
     var origin = window.location.origin;
