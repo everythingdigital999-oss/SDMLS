@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="custom-map-container" style="width: 100%; height: 500px; margin-top: 30px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <div id="map" style="width: 100%; height: 100%;"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Center coordinates for 10 Lightbeam Terrace, Brampton, ON
+      var centerLat = 43.6428;
+      var centerLng = -79.7426;
+      
+      var map = L.map('map').setView([centerLat, centerLng], 9);
+      
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+      }).addTo(map);
+      
+      // Main marker
+      var mainIcon = L.icon({
+          iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+          shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+      });
+      L.marker([centerLat, centerLng], {icon: mainIcon}).addTo(map)
+        .bindPopup("<b>SOCIAL DADDY, LLC</b><br>10 Lightbeam Terrace Unit 14<br>Brampton, ON L6Y 6H9")
+        .openPopup();
+        
+      // Generate 25 random markers within 50km
+      var numMarkers = 28;
+      for (var i = 0; i < numMarkers; i++) {
+        var radius = 50; // km
+        var w = radius / 111.32; // degrees
+        var u = Math.random();
+        var v = Math.random();
+        var w_r = w * Math.sqrt(u);
+        var t = 2 * Math.PI * v;
+        var x = w_r * Math.cos(t);
+        var y = w_r * Math.sin(t);
+        
+        var newLat = centerLat + x;
+        var newLng = centerLng + y / Math.cos(centerLat * Math.PI / 180);
+        
+        L.marker([newLat, newLng]).addTo(map);
+      }
+    });
+  </script>
+</div>
+</body>
+</html>
