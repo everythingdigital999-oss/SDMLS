@@ -2888,7 +2888,20 @@ url("https://static.wixstatic.com/ufonts/a0c786_4fc53a28c1cb432497b9c66ddd03ff13
 
 
 #comp-mgbymjht{--shc-mutated-brightness:20,19,19;}</style>
-</meta></meta></meta></meta></meta></meta></head>
+</meta></meta></meta></meta></meta></meta>
+<style class="hide-about-and-team">
+  li:has(a[href="about-us"]),
+  li:has(a[href="team"]),
+  a[href="about-us"],
+  a[href="team"],
+  a[href="./about-us"],
+  a[href="./team"],
+  #comp-mghvpghg {
+    display: none !important;
+  }
+</style>
+</head>
+
 <body class="">
 <script type="text/javascript">
     var bodyCacheable = true;

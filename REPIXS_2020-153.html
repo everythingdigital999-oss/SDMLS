@@ -122,7 +122,20 @@
 <link as="font" crossorigin="" href="https://static.parastorage.com/unpkg/@wix/wix-fonts@1.14.0/media/WixMadeforDisplayVF_W_Wght.ab35e4df.woff2" rel="preload"/>
 <link href="https://static.parastorage.com/unpkg/@wix/wix-fonts@1.14.0/madefor.min.css" rel="stylesheet"/>
 <link href="https://static.parastorage.com/unpkg/@wix/wix-fonts@1.14.0/madeforDisplay.min.css" rel="stylesheet"/>
+
+<style class="hide-about-and-team">
+  li:has(a[href="about-us"]),
+  li:has(a[href="team"]),
+  a[href="about-us"],
+  a[href="team"],
+  a[href="./about-us"],
+  a[href="./team"],
+  #comp-mghvpghg {
+    display: none !important;
+  }
+</style>
 </head>
+
 <body>
 <div id="root"></div>
 <script>
